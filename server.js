@@ -1,10 +1,10 @@
 const express = require("express");
-
 const fs = require("fs");
+const cors = require("cors");
 
 const app = express();
-const cors = cors();
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/users", (req, res) => {
