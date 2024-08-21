@@ -38,9 +38,9 @@ app.put("/users/:userId", (req, res) => {
   if (findIndex > -1) {
     users[findIndex].name = req.body.name;
     fs.readFileSync("./users.json", JSON.stringify({ users }));
-    res.status(200).json({ user: users[findIndex] });
+    res.status(200).json({ user: users[findIndex], date: "" });
   } else {
-    res.status(400)({ message: "Not found user id " });
+    res.status(400).json({ message: "Not found user id " });
   }
 });
 
@@ -54,7 +54,7 @@ app.delete("/users/:id", (req, res) => {
     const { users } = JSON.parse(data);
     res.status(200).json({ user: deleteUser[0] });
   } else {
-    res.status(400)({ message: "Not foound user id" });
+    res.status(400).json({ message: "Not foound user id" });
   }
 });
 
