@@ -1,1 +1,24 @@
+<<<<<<< HEAD
 {"users":[{"name":"Bataa","age":"18"},{"id":"NaN"},{"id":"NaN"},{"id":"NaN"},{"id":"NaN"},{"id":"NaN"},{"id":"NaN"}]}
+=======
+{
+    "employees":[
+            {
+                "eid": "1",
+                "firstname": "Naraa",
+                "lastname": "Davaa",
+                "email": "naraa@gmail.com",
+                "position": "Developer",
+                "profileImg": "https://img.daisyui.com/images/profile/demo/2@94.webp"
+              },
+              {
+                "eid": "1",
+                "firstname": "Gerlee",
+                "lastname": "Davaa",
+                "email": "naraa@gmail.com",
+                "position": "Developer",
+                "profileImg": "https://img.daisyui.com/images/profile/demo/2@94.webp"
+              }
+    ] 
+}
+>>>>>>> da50e6ed3689b61e05ed66a75dc2fc5032558709
