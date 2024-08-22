@@ -15,14 +15,13 @@ app.get("/users", (req, res) => {
 
 app.post("/users", (req, res) => {
   const data = fs.readFileSync("./users.json", { encoding: "utf8" });
-  const { users } = JSON.parse(data);
+  const { employees } = JSON.parse(data);
   const newUser = {
-    id: `${users.lenght + 1}`,
-    name: req.body.name,
-    age: req.body.age,
+    eid: `${employees.length + 1}`,
+    ...req.body,
   };
-  users.push(newUser);
-  fs.writeFileSync("./users.json", JSON.stringify({ users }));
+  employees.push(newUser);
+  fs.writeFileSync("./users.json", JSON.stringify({ employees }));
   res.status(201).json({ user: newUser });
 });
 
