@@ -45,18 +45,18 @@ app.put("/users/:userId", (req, res) => {
 
 app.delete("/users/:id", (req, res) => {
   const data = fs.readFileSync("./users.json", { encoding: "utf8" });
-  const { users } = JSON.parse(data);
-  const findIndex = users.findIndex((user) => user.id === req.params.id);
+  const { employees } = JSON.parse(data);
+  const findIndex = employees.findIndex((user) => user.ied === req.params.id);
+
   if (findIndex > -1) {
-    const deleteUser = users.splice(findIndex, 1);
-    const data = fs.readFileSync("./users.json", { encoding: "utf8" });
-    const { users } = JSON.parse(data);
-    res.status(200).json({ user: deleteUser[0] });
+    const deletedUser = employees.splice(findIndex, 1);
+    fs.readFileSync("./users.json", JSON.stringify({ employees }));
+    res.status(200).json({ user: deletedUser[0] });
   } else {
-    res.status(400).json({ message: "Not foound user id" });
+    res.status(400).json({ message: "Not found user id" });
   }
 });
 
-app.listen(8000, () => {
+  app.listen(8000, () => {
   console.log("Server is running at localhost:8000");
 });
